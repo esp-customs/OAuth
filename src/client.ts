@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import phin from 'phin';
-import { uid } from 'uid';
+import uid from 'uid';
 import User from './types/user';
 import APIError from './errors/api';
 import Guild from './types/guild';
