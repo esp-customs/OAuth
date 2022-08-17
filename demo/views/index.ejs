@@ -37,7 +37,7 @@
     </div>
     <div>
       <strong>Guilds:</strong>
-      <span class="username"><%= (guilds) ? guilds.array().map(g => g.name).join(', ') : 'N/A' %></span>
+      <span class="username"><%= (guilds) ? guilds.map(g => g.name).join(', ') : 'N/A' %></span>
     </div>
   </header>
 

@@ -7,7 +7,7 @@ import Guild from './types/guild';
 import Connection from './types/connection';
 import Collection from '@discordjs/collection';
 
-export type Scope = 'bot' | 'connections' | 'email' | 'identify' | 'guilds' | 'guilds.join' | 'gdm.join' | 'messages.read' | 'rpc' | 'rpc.api' | 'rpc.notifications.read' | 'webhook.incoming';
+export type Scope = 'bot'|'connections'|'email'|'identify'|'guilds'|'guilds.join'|'gdm.join'|'messages.read'|'rpc'|'rpc.api'|'rpc.notifications.read'|'webhook.incoming'|'applications.builds.upload'|'applications.builds.read'|'applications.store.update'|'applications.entitlements'|'relationships.read'|'activities.read'|'activities.write'|'applications.commands'|'applications.commands.update';
 
 export class Client {
   private baseURL = 'https://discord.com/api/';

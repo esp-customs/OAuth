@@ -3,7 +3,7 @@ config({ path: 'demo/.env' });
 
 import express from 'express';
 import cookies from 'cookies';
-import client from './auth-client';
+import { auth } from './auth-client';
 
 const app = express();
 
@@ -16,20 +16,27 @@ app.get('/', async (req, res) => {
   const key = req.cookies.get('key');
 
   res.render(`index`, {
-    user: (key) ? await client.getUser(key) : null,
-    guilds: (key) ? await client.getGuilds(key) : null
+    user: (key) ? await auth.getUser(key) : null,
+    guilds: (key) ? await auth.getGuilds(key) : null
   });
 });
 
 // A DISCORD: discord.com/api/oauth2/authorize/...
-app.get('/login', (req, res) => res.redirect(client.authCodeLink.url));
+app.get('/login', (req, res) => {
+	res.redirect(auth.authCodeLink.url)
+	console.dir(auth.authCodeLink.url)
+});
 
 // DESDE LA DISCORD: /auth?code=<access_token>
 app.get('/auth', async (req, res) => {
-  const key = await client.getAccess(req.query.code.toString());
-  res
-    .cookie('key', key)
-    .redirect('/');
+  try {
+    const key = await auth.getAccess(req.query.code.toString());
+    res
+      .cookie('key', key)
+      .redirect('/');
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.get('/logout', (req, res) => {

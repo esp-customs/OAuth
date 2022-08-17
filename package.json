@@ -1,6 +1,6 @@
 {
   "name": "@espcustomss/oauth",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Simplemente haga solicitudes de Discord OAuth. Construido con TypeScript, utilizado por Esp Customs.",
   "main": "lib/client.js",
   "scripts": {
@@ -23,21 +23,21 @@
   "author": "SrGobi",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/collection": "^0.1.6",
-    "clean-jsdoc-theme": "^3.3.1",
+    "@discordjs/collection": "^0.7.0",
+    "clean-jsdoc-theme": "^4.1.7",
     "cookies": "^0.8.0",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "jsonwebtoken": "^8.5.1",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.19",
     "phin": "^3.6.1",
-    "ts-node": "^10.8.0",
-    "typedoc": "^0.22.17",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.22.18",
     "typescript": "^4.3.4",
     "uid": "^1.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.1",
+    "@types/chai": "^4.3.3",
     "@types/cookies": "^0.7.7",
     "@types/express": "^4.17.13",
     "@types/mocha": "^9.1.1",
@@ -45,10 +45,10 @@
     "chai": "^4.3.6",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.2",
-    "jsdoc": "^3.6.7",
+    "jsdoc": "^3.6.11",
     "mocha": "^10.0.0",
-    "prettier": "^2.5.1",
+    "prettier": "^2.7.1",
     "ts-mocha": "^10.0.0",
-    "ts-node-dev": "^1.1.8"
+    "ts-node-dev": "^2.0.0"
   }
 }
