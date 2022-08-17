@@ -3,7 +3,7 @@ Discord V13 Final (@discordjs/collection@0.7.0) todas las dependencias actualiza
 Maxima compatibilidad con TypeScript y errores corregidos
 ![](https://i.imgur.com/0lnboQ5.png)
 
-**Ejemplos completos**: [Demo](/tree/stable/demo), [Esp Customs](https://github.com/esp-customs)
+**Ejemplos completos**: [Demo](https://github.com/esp-customs/OAuth/tree/main/demo), [Esp Customs](https://github.com/esp-customs)
 
 ## 1 - 💻 Instalación
 `npm i @espcustomss/oauth`
