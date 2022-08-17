@@ -1,16 +1,7 @@
 ## 📖 Introduction Esp Customs OAuth
 Discord V13 Final (@discordjs/collection@0.7.0) todas las dependencias actualizadas!!
 Maxima compatibilidad con TypeScript y errores corregidos
-<style>
-table th:first-of-type {
-    width: 10%;
-}
-table th:nth-of-type(2) {
-    width: 10%;
-}
-</style>
-| ![DiscordJS](https://camo.githubusercontent.com/d55d8a7f07a103454ebb77b653d9600ce27e011f78395d9713b432c8c011c76a/68747470733a2f2f646973636f72642e6a732e6f72672f7374617469632f6c6f676f2e737667)| ![DiscordTS](https://discord-ts.js.org/discord-ts.svg) |
-| :---        |    :----:   |
+![](https://i.imgur.com/0lnboQ5.png)
 
 **Ejemplos completos**: [Demo](/tree/stable/demo), [Esp Customs](https://github.com/esp-customs)
 
