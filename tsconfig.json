@@ -15,10 +15,5 @@
     "target": "ES5",
     "watch": true
   },
-  "typedocOptions": {
-    "entryPoints": ["src/client.ts", "src/errors/api.ts", "src/types/connection.ts", "src/types/guild.ts", "src/types/user.ts"],
-    "out": "docs/www",
-    "theme": "docs/docs-theme",
-  },
-  "include": ["src"]
+  "include": ["src"],
 }
