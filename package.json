@@ -1,6 +1,6 @@
 {
   "name": "@espcustomss/oauth",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simplemente haga solicitudes de Discord OAuth. Construido con TypeScript, utilizado por Esp Customs.",
   "main": "lib/client.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "author": "SrGobi",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/collection": "^0.7.0",
+    "@discordjs/collection": "^0.1.6",
     "clean-jsdoc-theme": "^4.1.7",
     "cookies": "^0.8.0",
     "dotenv": "^16.0.1",
@@ -44,7 +44,7 @@
     "@types/node": "^17.0.8",
     "chai": "^4.3.6",
     "cookie-parser": "^1.4.6",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "jsdoc": "^3.6.11",
     "mocha": "^10.0.0",
     "prettier": "^2.7.1",

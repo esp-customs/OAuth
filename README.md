@@ -1,5 +1,5 @@
 ## 📖 Introduction Esp Customs OAuth
-Discord V13 Final (@discordjs/collection@0.7.0) todas las dependencias actualizadas!!
+Discord OAuth actualizando todas las dependencias, totalmente funcional!!
 Maxima compatibilidad con TypeScript y errores corregidos
 ![](https://i.imgur.com/0lnboQ5.png)
 
