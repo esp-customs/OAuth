@@ -30,7 +30,8 @@ app.get('/login', (req, res) => {
 // DESDE LA DISCORD: /auth?code=<access_token>
 app.get('/auth', async (req, res) => {
   try {
-    const key = await auth.getAccess(req.query.code.toString());
+    let code = req.query.code as string;
+    const key = await auth.getAccess(code.toString());
     res
       .cookie('key', key)
       .redirect('/');

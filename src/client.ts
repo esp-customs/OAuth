@@ -5,15 +5,15 @@ import User from './types/user';
 import APIError from './errors/api';
 import Guild from './types/guild';
 import Connection from './types/connection';
-import Collection from '@discordjs/collection';
+import { Collection } from '@discordjs/collection';
 
-export type Scope = 'bot'|'connections'|'email'|'identify'|'guilds'|'guilds.join'|'gdm.join'|'messages.read'|'rpc'|'rpc.api'|'rpc.notifications.read'|'webhook.incoming'|'applications.builds.upload'|'applications.builds.read'|'applications.store.update'|'applications.entitlements'|'relationships.read'|'activities.read'|'activities.write'|'applications.commands'|'applications.commands.update';
+export type Scope = 'activities.read' | 'activities.write' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.update' | 'applications.commands.permissions.update' | 'applications.entitlements' | 'applications.store.update' | 'bot' | 'connections' | 'dm_channels.read' | 'email' | 'gdm.join' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'identify' | 'messages.read' | 'relationships.read' | 'role_connections.write' | 'rpc' | 'rpc.activities.write' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'voice' | 'webhook.incoming';
 
 export class Client {
   private baseURL = 'https://discord.com/api/';
 
   /** Cree un nuevo cliente OAuth2. */
-  constructor(private options: ClientOptions) {}
+  constructor(private options: ClientOptions) { }
 
   /** Genera un enlace de código de autorización según los ámbitos y el conjunto de URI de redirección. */
   get authCodeLink() {
@@ -73,7 +73,7 @@ export class Client {
       });
       if (response.statusCode !== 200)
         throw new APIError(response.statusCode);
-      
+
       let token = response.body;
       token.expireTimestamp = Date.now() + token['expires_in'] * 1000 - 10000;
 
@@ -103,7 +103,7 @@ export class Client {
       });
       if (response.statusCode !== 200)
         throw new APIError(response.statusCode);
-        
+
       return new User(response.body);
     } catch (err: any) {
       throw (err.error
@@ -115,7 +115,7 @@ export class Client {
   /** Obtiene los servidores de un usuario autorizado. */
   async getGuilds(key: string): Promise<Collection<string, Guild>> {
     const access = this.getAccessKey(key);
-    
+
     try {
       const response: any = await phin({
         url: `${this.baseURL}users/@me/guilds`,
@@ -129,7 +129,7 @@ export class Client {
       const guilds = new Collection<string, Guild>();
       for (const guild of response.body)
         guilds.set(guild.id, new Guild(guild));
-      
+
       return guilds;
     } catch (err) {
       throw err;
@@ -149,11 +149,11 @@ export class Client {
       });
       if (response.statusCode !== 200)
         throw new APIError(response.statusCode);
-      
+
       const connections = new Collection<string, Connection>();
       for (const connection of response.body)
         connections.set(connection.id, connection);
-        
+
       return connections;
     } catch (err: any) {
       throw (err.error
