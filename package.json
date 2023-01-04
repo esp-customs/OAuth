@@ -23,7 +23,7 @@
   "author": "SrGobi",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/collection": "^0.7.0",
+    "@discordjs/collection": "^0.4.0",
     "jsonwebtoken": "^9.0.0",
     "phin": "^3.7.0",
     "ts-node": "^10.9.1",
