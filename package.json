@@ -1,6 +1,6 @@
 {
   "name": "@espcustomss/oauth",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Simplemente haga solicitudes de Discord OAuth. Construido con TypeScript, utilizado por Esp Customs.",
   "main": "lib/client.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "author": "SrGobi",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/collection": "^0.4.0",
+    "@discordjs/collection": "^0.1.6",
     "jsonwebtoken": "^9.0.0",
     "phin": "^3.7.0",
     "ts-node": "^10.9.1",
