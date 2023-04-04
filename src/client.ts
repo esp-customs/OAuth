@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken';
 import phin from 'phin';
-import uid from 'uid';
 import User from './types/user';
 import APIError from './errors/api';
 import Guild from './types/guild';
 import Connection from './types/connection';
 import { Collection } from '@discordjs/collection';
+import crypto from 'crypto';
 
 export type Scope = 'activities.read' | 'activities.write' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.update' | 'applications.commands.permissions.update' | 'applications.entitlements' | 'applications.store.update' | 'bot' | 'connections' | 'dm_channels.read' | 'email' | 'gdm.join' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'identify' | 'messages.read' | 'relationships.read' | 'role_connections.write' | 'rpc' | 'rpc.activities.write' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'voice' | 'webhook.incoming';
 
@@ -18,7 +18,7 @@ export class Client {
   /** Genera un enlace de código de autorización según los ámbitos y el conjunto de URI de redirección. */
   get authCodeLink() {
     if (this.options.scopes.length > 0) {
-      let state = uid(16);
+      let state = crypto.randomBytes(16).toString('hex');
       return {
         url: `https://discord.com/api/oauth2/authorize?response_type=code&client_id=${this.options.id}&scope=${this.options.scopes.join('%20')}&state=${state}&redirect_uri=${this.options.redirectURI}&prompt=none`,
         state
@@ -85,9 +85,22 @@ export class Client {
     }
   }
 
-  private getAccessKey(key: string): { access_token, token_type, refresh_token } {
-    try { return jwt.verify(key, this.options.secret); }
-    catch (error) { throw error; }
+  private getAccessKey(key: string): { access_token: any, token_type: any, refresh_token: any } {
+    try {
+      const decoded = jwt.verify(key, this.options.secret);
+
+      if (typeof decoded === 'string') {
+        throw new Error('Invalid access key');
+      }
+
+      return {
+        access_token: decoded.access_token,
+        token_type: decoded.token_type,
+        refresh_token: decoded.refresh_token
+      };
+    } catch (error) {
+      throw error;
+    }
   }
 
   /** Obtiene el usuario que ha autorizado el uso del flujo OAuth2. */
