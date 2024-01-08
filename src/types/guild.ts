@@ -47,7 +47,7 @@ const permissionConstants = {
   0x200000000000: 'USE_EXTERNAL_SOUNDS',
   0x400000000000: 'SEND_VOICE_MESSAGES',
 };
-import { ImageURLOptions } from '../rest/index';
+
 export default class Guild {
   /** El ID de Discord único del servidor. */
   readonly id: string;
