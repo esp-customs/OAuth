@@ -1,5 +1,4 @@
 /** Un usuario de Discord que ha autorizado su aplicación para tener acceso a sus datos. */
-import { ImageURLOptions } from '../rest/index';
 export default class User {
   /** El nombre de usuario de discord del usuario. */
   username: string;
@@ -58,8 +57,8 @@ export default class User {
     this.userFlags = [];
     this.premiumType = premium_type === 0 ? 'None' : premium_type === 1 ? 'Nitro Classic' : 'Nitro';
     this.bot = bot;
-    this.displayAvatarURL = this.avatarURL({ forceStatic: false, size: 256 });
-    this.bannerURL = this.BannerURL({ forceStatic: false, size: 1024 });
+    this.displayAvatarURL = this.avatarURL({ dynamic: true, size: 256 });
+    this.bannerURL = this.BannerURL({ dynamic: true, size: 1024 });
     this.tag = `${this.username}#${this.discriminator}`;
 
     this.buildFlags(flags);
@@ -102,19 +101,22 @@ export default class User {
   }
 
   /** Obtenga la URL del avatar de un usuario, con opciones. */
-  avatarURL(options: ImageURLOptions = { size: 512 }): string {
-    const extension = (this.avatarHash?.startsWith('a_') && options.forceStatic) ? 'gif' : 'webp';
+  avatarURL(options: AvatarOptions = { size: 512 }): string {
+    const extension = (this.avatarHash?.startsWith('a_') && options.dynamic) ? 'gif' : 'png';
 
-    return `https://cdn.discordapp.com/${this.avatarHash ? '' : 'embed/'}avatars/${
-      this.avatarHash ? `${this.id}/${this.avatarHash}` : parseInt(this.discriminator) % 5
-      }.${(this.avatarHash) ? extension : 'webp'}?size=${options.size}`;
+    return `https://cdn.discordapp.com/${this.avatarHash ? '' : 'embed/'}avatars/${this.avatarHash ? `${this.id}/${this.avatarHash}` : parseInt(this.discriminator) % 5
+      }.${(this.avatarHash) ? extension : 'png'}?size=${options.size}`;
   };
   /** Obtenga la URL del banner de un usuario, con opciones. */
-  BannerURL(options: ImageURLOptions = { size: 512 }): string {
-    const extension = (this.avatarHash?.startsWith('a_') && options.forceStatic) ? 'gif' : 'png';
+  BannerURL(options: AvatarOptions = { size: 512 }): string {
+    const extension = (this.avatarHash?.startsWith('a_') && options.dynamic) ? 'gif' : 'png';
 
-    return `https://cdn.discordapp.com/${this.bannerHash ? '' : 'embed/'}banners/${
-      this.bannerHash ? `${this.id}/${this.bannerHash}` : parseInt(this.discriminator) % 5
+    return `https://cdn.discordapp.com/${this.bannerHash ? '' : 'embed/'}banners/${this.bannerHash ? `${this.id}/${this.bannerHash}` : parseInt(this.discriminator) % 5
       }.${(this.bannerHash) ? extension : 'png'}?size=${options.size}`;
   }
+}
+
+export interface AvatarOptions {
+  dynamic?: boolean;
+  size?: number;
 }
