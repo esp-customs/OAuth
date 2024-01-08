@@ -5,15 +5,14 @@
     "downlevelIteration": true,
     "esModuleInterop": true,
     "inlineSourceMap": true,
-    "lib": ["ES2021"],
+    "lib": ["ES2022"],
     "module": "CommonJS",
     "noImplicitAny": false,
     "outDir": "lib",
     "resolveJsonModule": true,
     "strict": true,
     "strictNullChecks": false,
-    "target": "ES5",
-    "watch": true
+    "target": "ES2022"
   },
   "include": ["src"],
 }
