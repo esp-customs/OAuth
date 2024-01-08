@@ -5,8 +5,7 @@
   "main": "lib/client.js",
   "scripts": {
     "docs": "typedoc --entryPoints src --entryPointStrategy expand --out docs --plugin typedoc-theme-hierarchy --theme hierarchy",
-    "demo": "ts-node-dev demo/server.ts",
-    "build": "tsc --build"
+    "demo": "ts-node-dev demo/server.ts"
   },
   "repository": {
     "type": "git",

@@ -12,7 +12,8 @@
     "resolveJsonModule": true,
     "strict": true,
     "strictNullChecks": false,
-    "target": "ES5"
+    "target": "ES5",
+    "watch": true
   },
   "include": ["src"],
 }
