@@ -94,11 +94,9 @@ export default class Guild {
    * Devuelve una URL al icono del servidor.
    * @param size El tamaño del icono en píxeles. (Predeterminado a 512)
    */
-  iconUrl(options: ImageURLOptions = { size: 512 }): string {
-    const extension = (this.iconHash?.startsWith('a_') && options.forceStatic) ? 'gif' : 'webp';
+  iconUrl(size = 512): string {
     return this.iconHash
-      ? `https://cdn.discordapp.com/icons/${this.id}/${this.iconHash}.${
-      this.iconHash.startsWith('a_') ? extension : 'webp'}?size=${options.size}`
+      ? `https://cdn.discordapp.com/icons/${this.id}/${this.iconHash}.${this.iconHash.startsWith('a_') ? 'gif' : 'png'}?size=${size}`
       : 'https://i.imgur.com/rdvO6lD.png';
   }
 }

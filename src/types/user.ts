@@ -111,10 +111,10 @@ export default class User {
   };
   /** Obtenga la URL del banner de un usuario, con opciones. */
   BannerURL(options: ImageURLOptions = { size: 512 }): string {
-    const extension = (this.avatarHash?.startsWith('a_') && options.forceStatic) ? 'gif' : 'webp';
+    const extension = (this.avatarHash?.startsWith('a_') && options.forceStatic) ? 'gif' : 'png';
 
     return `https://cdn.discordapp.com/${this.bannerHash ? '' : 'embed/'}banners/${
       this.bannerHash ? `${this.id}/${this.bannerHash}` : parseInt(this.discriminator) % 5
-      }.${(this.bannerHash) ? extension : 'webp'}?size=${options.size}`;
+      }.${(this.bannerHash) ? extension : 'png'}?size=${options.size}`;
   }
 }
