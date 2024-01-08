@@ -104,15 +104,17 @@ export default class User {
   avatarURL(options: AvatarOptions = { size: 512 }): string {
     const extension = (this.avatarHash?.startsWith('a_') && options.dynamic) ? 'gif' : 'png';
 
-    return `https://cdn.discordapp.com/${this.avatarHash ? '' : 'embed/'}avatars/${this.avatarHash ? `${this.id}/${this.avatarHash}` : parseInt(this.discriminator) % 5
-      }.${(this.avatarHash) ? extension : 'png'}?size=${options.size}`;
+    return `https://cdn.discordapp.com/${this.avatarHash ? '' : 'embed/'}avatars/${
+      this.avatarHash ? `${this.id}/${this.avatarHash}` : parseInt(this.discriminator) % 5
+    }.${(this.avatarHash) ? extension : 'png'}?size=${options.size}`;
   };
   /** Obtenga la URL del banner de un usuario, con opciones. */
   BannerURL(options: AvatarOptions = { size: 512 }): string {
     const extension = (this.avatarHash?.startsWith('a_') && options.dynamic) ? 'gif' : 'png';
 
-    return `https://cdn.discordapp.com/${this.bannerHash ? '' : 'embed/'}banners/${this.bannerHash ? `${this.id}/${this.bannerHash}` : parseInt(this.discriminator) % 5
-      }.${(this.bannerHash) ? extension : 'png'}?size=${options.size}`;
+    return `https://cdn.discordapp.com/${this.bannerHash ? '' : 'embed/'}banners/${
+      this.bannerHash ? `${this.id}/${this.bannerHash}` : parseInt(this.discriminator) % 5
+    }.${(this.bannerHash) ? extension : 'png'}?size=${options.size}`;
   }
 }
 

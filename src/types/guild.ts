@@ -73,7 +73,8 @@ export default class Guild {
    */
   iconUrl(size = 512): string {
     return this.iconHash
-      ? `https://cdn.discordapp.com/icons/${this.id}/${this.iconHash}.${this.iconHash.startsWith('a_') ? 'gif' : 'png'}?size=${size}`
+      ? `https://cdn.discordapp.com/icons/${this.id}/${this.iconHash}.${
+          this.iconHash.startsWith('a_') ? 'gif' : 'png'}?size=${size}`
       : 'https://i.imgur.com/rdvO6lD.png';
   }
 }
