@@ -1,7 +1,7 @@
 {
   "name": "@espcustomss/oauth",
-  "version": "2.0.1",
-  "description": "Simplemente haga solicitudes de Discord OAuth. Construido con TypeScript, utilizado por Esp Customs.",
+  "version": "2.0.2",
+  "description": "Simply make Discord OAuth requests. Built with TypeScript, used by Esp Customs.",
   "main": "lib/client.js",
   "scripts": {
     "docs": "typedoc --entryPoints src --entryPointStrategy expand --out ../temp-docs --plugin typedoc-theme-hierarchy --theme hierarchy && robocopy ../temp-docs ../docs /E /XD .git CNAME /IS /IT && rmdir /S /Q ../temp-docs",
