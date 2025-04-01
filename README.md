@@ -12,19 +12,19 @@ npm i @espcustomss/oauth
 
 # [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&pause=1000&&color=00EDFF&random=false&width=435&lines=%F0%9F%8E%AF+Describing)](#)
 
-Esp Customs OAuth es una biblioteca diseñada para facilitar la integración de OAuth2 con Discord, permitiendo la autenticación, obtención de datos de usuario, servidores y conexiones de manera sencilla y eficiente.
+Esp Customs OAuth is a library designed to facilitate the integration of OAuth2 with Discord, allowing authentication, retrieval of user data, servers, and connections in a simple and efficient manner.
 
 ## ✨Features
 
-- 🔒 **Soporte completo para TypeScript** - Construido con TypeScript para una experiencia de desarrollo más robusta.
-- 🚀 **Compatibilidad con las últimas versiones de Discord API** - Siempre actualizado con los últimos cambios de Discord.
-- 🛠️ **Fácil de usar** - API intuitiva para desarrolladores de todos los niveles.
-- 🌐 **Obtención de datos de usuario, servidores y conexiones** - Accede fácilmente a la información del usuario autenticado.
-- 🔄 **Generación de enlaces de autorización** - Simplifica el proceso de autenticación OAuth2.
+- 🔒 **Full TypeScript Support** - Built with TypeScript for a more robust development experience.
+- 🚀 **Compatibility with the Latest Discord API Versions** - Always up-to-date with the latest Discord changes.
+- 🛠️ **Easy to Use** - Intuitive API for developers of all skill levels.
+- 🌐 **Get User, Server, and Connection Data** - Easily access authenticated user information.
+- 🔄 **Authorization Link Generation** - Simplifies the OAuth2 authentication process.
 
 # 📦Examples
 
-## **Configuración básica**
+## **Basic Configuration**
 
 ```typescript
 import { Client } from '@espcustomss/oauth';
@@ -37,40 +37,40 @@ const auth = new Client({
 });
 ```
 
-## **Autenticación y obtención de datos**
+## **Authentication and Data Collection**
 
 ```typescript
-// Obtener el token de acceso
+// Get the access token
 const key = await auth.getAccess('<code_from_discord>');
 
-// Obtener datos del usuario
+// Get user data
 const user = await auth.getUser(key); 
 console.log(user); // { id: '...', username: '...', ... }
 
-// Obtener servidores del usuario
+// Get user servers
 const guilds = await auth.getGuilds(key); 
 console.log(guilds); // Collection<{ id: '...', name: '...', ... }>
 
-// Obtener conexiones del usuario
+// Get user connections
 const connections = await auth.getConnections(key); 
 console.log(connections); // Collection<{ id: '...', name: '...', ... }>
 ```
 
-## **Generar un enlace de autorización**
+## **Generate an authorization link**
 
 ```typescript
 const authLink = auth.authCodeLink.url;
-console.log(`Visita este enlace para autenticarte: ${authLink}`);
+console.log(`Visit this link to authenticate: ${authLink}`);
 ```
 
 # 🛠️API Documentation
 
-Consulta la [documentación completa](https://oauth.srgobi.com) para más detalles sobre cómo usar esta biblioteca.
+See the [full documentation](https://oauth.srgobi.com) for more details on how to use this library.
 
 # 📝Contributing
 
-¡Las contribuciones son bienvenidas! Si encuentras un error o tienes una idea para mejorar la biblioteca, no dudes en abrir un issue o enviar un pull request.
+Contributions are welcome! If you find a bug or have an idea for improving the library, feel free to open an issue or submit a pull request.
 
 # 📄License
 
-Este proyecto está licenciado bajo la licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
