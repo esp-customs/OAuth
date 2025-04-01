@@ -1,20 +1,15 @@
 {
   "name": "@espcustomss/oauth",
-  "version": "1.1.4",
+  "version": "2.0.0",
   "description": "Simplemente haga solicitudes de Discord OAuth. Construido con TypeScript, utilizado por Esp Customs.",
   "main": "lib/client.js",
   "scripts": {
-    "docs": "typedoc --entryPoints src --entryPointStrategy expand --out docs --plugin typedoc-theme-hierarchy --theme hierarchy",
-    "demo": "ts-node-dev demo/server.ts",
+    "docs": "typedoc --entryPoints src --entryPointStrategy expand --out ../temp-docs --plugin typedoc-theme-hierarchy --theme hierarchy && robocopy ../temp-docs ../docs /E /XD .git CNAME /IS /IT && rmdir /S /Q ../temp-docs",
     "build": "tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/esp-customs/OAuth.git"
-  },
-  "homepage": "https://oauth.srgobi.com",
-  "publishConfig": {
-    "access": "public"
   },
   "keywords": [
     "discord",
@@ -23,32 +18,24 @@
   ],
   "author": "SrGobi",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/esp-customs/OAuth/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "homepage": "https://oauth.srgobi.com",
   "dependencies": {
-    "@discordjs/collection": "^0.1.6",
+    "@discordjs/collection": "^2.1.1",
     "jsonwebtoken": "^9.0.2",
-    "phin": "^3.7.0",
-    "ts-node": "^10.9.2"
+    "phin": "^3.7.1"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.11",
-    "@types/cookies": "^0.7.10",
-    "@types/express": "^4.17.21",
-    "@types/jsonwebtoken": "^9.0.5",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "^20.11.2",
-    "chai": "^5.0.0",
-    "cookie-parser": "^1.4.6",
-    "cookies": "^0.9.1",
-    "dotenv": "^16.3.1",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "mocha": "^10.2.0",
-    "nodemon": "^3.0.2",
-    "prettier": "^3.2.2",
-    "ts-mocha": "^10.0.0",
-    "ts-node-dev": "^2.0.0",
-    "typedoc": "^0.25.7",
-    "typedoc-theme-hierarchy": "^4.1.2",
-    "typescript": "^5.2.2"
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.13.17",
+    "typedoc": "^0.28.1",
+    "typedoc-theme-hierarchy": "^6.0.0",
+    "typescript": "^5.8.2"
   }
 }

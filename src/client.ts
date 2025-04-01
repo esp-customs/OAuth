@@ -4,7 +4,7 @@ import User from './types/user';
 import APIError from './errors/api';
 import Guild from './types/guild';
 import Connection from './types/connection';
-import Collection from '@discordjs/collection';
+import { Collection } from '@discordjs/collection';
 import crypto from 'crypto';
 
 export type Scope = 'activities.read' | 'activities.write' | 'applications.builds.upload' | 'applications.builds.read' | 'applications.commands' | 'applications.commands.update' | 'applications.commands.permissions.update' | 'applications.entitlements' | 'applications.store.update' | 'bot' | 'connections' | 'dm_channels.read' | 'email' | 'gdm.join' | 'guilds' | 'guilds.join' | 'guilds.members.read' | 'identify' | 'messages.read' | 'relationships.read' | 'role_connections.write' | 'rpc' | 'rpc.activities.write' | 'rpc.notifications.read' | 'rpc.voice.read' | 'rpc.voice.write' | 'voice' | 'webhook.incoming';
