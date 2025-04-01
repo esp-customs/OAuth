@@ -1,0 +1,12 @@
+# Dependency directories
+node_modules/
+
+# Github Actions
+.github/
+
+# Optional npm cache directory
+pnpm-lock.yaml
+
+# Files Environment
+.env
+.env.local
