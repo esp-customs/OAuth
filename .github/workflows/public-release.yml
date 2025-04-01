@@ -1,5 +1,5 @@
 # .github/workflows/release.yml
-name: Publish canvacard
+name: Publish oauth
 
 on:
   release:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    name: Build & Publish canvacard
+    name: Build & Publish oauth
     runs-on: ubuntu-latest
 
     permissions:
