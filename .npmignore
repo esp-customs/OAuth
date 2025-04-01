@@ -6,7 +6,3 @@ node_modules/
 
 # Optional npm cache directory
 pnpm-lock.yaml
-
-# Files Environment
-.env
-.env.local
