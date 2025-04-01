@@ -1,34 +1,34 @@
 ---
-name: Informe de error
-about: Crea un informe para ayudarnos a mejorar
+name: Bug Report
+about: Create a report to help us improve
 title: ''
 labels: bug
 assignees: SrGobi
 
 ---
 
-**Reproducir**
-Pasos para reproducir el comportamiento:
-1. Vaya a '...'
-2. Haga clic en '....'
-3. Desplácese hacia abajo hasta '....'
-4. Ver error
+**Steps to Reproduce**
+Please provide the steps to reproduce the issue:
+1. Go to '...'
+2. Click on '...'
+3. Scroll down to '...'
+4. See the error
 
-**Comportamiento esperado**
-Una descripción clara y concisa de lo que esperaba que sucediera.
+**Expected Behavior**
+A clear and concise description of what you expected to happen.
 
-**Comportamiento real**
-Una descripción clara y concisa de lo que realmente está sucediendo.
+**Actual Behavior**
+A clear and concise description of what actually happened.
 
-**capturas de pantalla**
-Si corresponde, agregue capturas de pantalla para ayudar a explicar su problema.
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
-**Especificaciones**
-node.js: `<node.js version aqui>`
-disco-oauth: `<disco-oauth version aqui>`
+**Environment**
+- Node.js version: `<your node.js version here>`
+- OAuth version: `<your OAuth version here>`
 
-**Sugerencias**
-Si cree que conoce la causa de este error, vincule el archivo de este repositorio aquí y agregue una descripción clara y concisa de lo que podría estar mal.
+**Suggestions**
+If you think you know the cause of this issue, link the relevant file from this repository and provide a clear and concise description of what might be wrong.
 
-**Contexto adicional**
-Agregue cualquier otro contexto sobre el problema aquí.
+**Additional Context**
+Add any other context about the problem here.
