@@ -49,55 +49,60 @@ const permissionConstants = {
 };
 
 export default class Guild {
-  /** El ID de Discord único del servidor. */
-  readonly id: string;
-  /** Nombre del servidor. */
-  readonly name: string;
-  /** El hash del icono del servidor.The guild's icon hash. */
-  readonly iconHash: string;
-  /** Una lista de las funciones habilitadas para discord del servidor. */
-  readonly features: string[]
-  /** Si el usuario autorizado es el dueño del servidor. */;
-  readonly isOwner: boolean;
-  /** Una lista de permisos que tiene el usuario autorizado en este servidor. */
-  readonly permissions: string[];
+	/** El ID de Discord único del servidor. */
+	readonly id: string;
+	/** Nombre del servidor. */
+	readonly name: string;
+	/** El hash del icono del servidor.The guild's icon hash. */
+	readonly iconHash: string;
+	/** El hash del banner del servidor. */
+	readonly bannerHash: string;
+	/** Si el usuario autorizado es el dueño del servidor. */
+	readonly isOwner: boolean;
+	/** Una lista de permisos que tiene el usuario autorizado en este servidor. */
+	readonly permissions: string[];
+	/** Una lista de las funciones habilitadas para discord del servidor. */
+	readonly features: string[];
+	/** El número aproximado de miembros en el servidor. */
+	readonly approximateMemberCount: number;
+	/** El número aproximado de miembros en línea en el servidor. */
+	readonly approximatePresenceCount: number;
 
-  /** La marca de tiempo de creación de la cuenta del usuario. */
-  get createdTimestamp() {
-    return parseInt((BigInt(this.id) >> BigInt(22)).toString()) + 1420070400000;
-  }
-  /** La hora de creación de la cuenta del usuario. */
-  get createdAt() {
-    return new Date(this.createdTimestamp);
-  }
+	/** La marca de tiempo de creación de la cuenta del usuario. */
+	get createdTimestamp() {
+		return parseInt((BigInt(this.id) >> BigInt(22)).toString()) + 1420070400000;
+	}
+	/** La hora de creación de la cuenta del usuario. */
+	get createdAt() {
+		return new Date(this.createdTimestamp);
+	}
 
-  constructor({ id, name, icon, features = [], owner = false, permissions = 0 }) {
-    this.id = id;
-    this.name = name;
-    this.iconHash = icon;
-    this.features = features;
-    this.isOwner = owner;
-    this.permissions = this.parsePermissions(permissions);
-  }
+	constructor({ id, name, icon, banner, owner = false, permissions = 0, features = [], approximate_member_count = 0, approximate_presence_count = 0 }: any) {
+		this.id = id;
+		this.name = name;
+		this.iconHash = icon;
+		this.bannerHash = banner;
+		this.isOwner = owner;
+		this.permissions = this.parsePermissions(permissions);
+		this.features = features;
+		this.approximateMemberCount = approximate_member_count;
+		this.approximatePresenceCount = approximate_presence_count;
+	}
 
-  private parsePermissions(perms: number) {
-    const p = [];
-    for (let c in permissionConstants) {
-      let permNum = parseInt(c);
-      if ((permNum & perms) === permNum)
-        p.push(permissionConstants[permNum]);
-    }
-    return p;
-  }
+	private parsePermissions(perms: number) {
+		const p = [];
+		for (let c in permissionConstants) {
+			let permNum = parseInt(c);
+			if ((permNum & perms) === permNum) p.push(permissionConstants[permNum]);
+		}
+		return p;
+	}
 
-  /**
-   * Devuelve una URL al icono del servidor.
-   * @param size El tamaño del icono en píxeles. (Predeterminado a 512)
-   */
-  iconUrl(size = 512): string {
-    return this.iconHash
-      ? `https://cdn.discordapp.com/icons/${this.id}/${this.iconHash}.${
-          this.iconHash.startsWith('a_') ? 'gif' : 'png'}?size=${size}`
-      : 'https://i.imgur.com/rdvO6lD.png';
-  }
+	/**
+	 * Devuelve una URL al icono del servidor.
+	 * @param size El tamaño del icono en píxeles. (Predeterminado a 512)
+	 */
+	iconUrl(size = 512): string {
+		return this.iconHash ? `https://cdn.discordapp.com/icons/${this.id}/${this.iconHash}.${this.iconHash.startsWith('a_') ? 'gif' : 'png'}?size=${size}` : 'https://i.imgur.com/rdvO6lD.png';
+	}
 }
