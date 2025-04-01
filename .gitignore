@@ -4,10 +4,6 @@
 # Dependency directories
 node_modules/
 
-# Build output
-lib/
-dist/
-
 # Logs
 *.log
 npm-debug.log*
